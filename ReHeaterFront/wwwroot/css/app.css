@@ -5,7 +5,7 @@ html, body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 a, .btn-link { color: #0366d6; }
 
 .fading-line {
-    background: linear-gradient(to right, white, black, white 50%);
+    background: linear-gradient(to right, #F0A96B, #DD914F, #F0A96B 50%);
     border: none;
     height: 0.1rem;
 }
