@@ -33,7 +33,7 @@
     .slider::-webkit-slider-thumb {
         -webkit-appearance: none; /* Override default look */
         appearance: none;
-        background: #4CAF50; /* Green background */
+        background: #F0A96B; /* Green background */
         cursor: pointer; /* Cursor on hover */
         height: 25px; /* Slider handle height */
         width: 25px; /* Set a specific slider handle width */
@@ -46,7 +46,7 @@
         width: 25px; /* Set a specific slider handle width */
     }
 </style>
-<h1>Hello, world!</h1>
+
 
 Welcome to your new app.
 
@@ -73,8 +73,9 @@ Welcome to your new app.
     <button class="btn-success" @onclick="SendDataToAPI">Predict</button>
 </div>
 
-<div>
-    Predicted setting is @PredictedSetting
+<div class="jumbotron align-content-center">
+    Predicted power is @PredictedSetting Watts
+    That would be somewhere around @PowerPercent % of your heater's power
 </div>
 
 @code{
@@ -107,4 +108,5 @@ Welcome to your new app.
     public float TargetTemp { get; set; }
     public double PredictedSetting { get; set; }
     public float StartTemp { get; set; }
+    public double PowerPercent => Math.Round(PredictedSetting / HeaterPower * 100);
 }
