@@ -50,14 +50,21 @@ Welcome to your new app.
 
 <div class="slidecontainer">
     <input @bind="HeaterPower" type="range" min="1" max="10000" step="1" class="slider" id="power">
+    Heater power @HeaterPower
     <input @bind="Area" type="range" min="1" max="1000" step="1" class="slider" id="area">
+    @Area
     <input @bind="TargetTemp" type="range" min="1" max="50" step="1" class="slider" id="targetTemp">
+    @TargetTemp
     <input @bind="OutsideTemp" type="range" min="1" max="50" step="1" class="slider" id="outsideTemp">
+    @OutsideTemp
+    <input @bind="StartTemp" type="range" min="1" max="50" step="1" class="slider" id="startTemp">
+    @StartTemp
+
 </div>
 
 <div>
   current power is @HeaterPower.ToString() Watts
-  <button @onclick="SendDataToAPI"></button>
+  <button @onclick="SendDataToAPI">Predict </button>
   Predicted setting is @PredictedSetting
 </div>
 
@@ -72,6 +79,8 @@ Welcome to your new app.
         query["roomArea"] = Convert.ToString(Area, CultureInfo.InvariantCulture);
         query["targetTemp"] = Convert.ToString(TargetTemp, CultureInfo.InvariantCulture);
         query["roomId"] = "0";
+        query["outsideTemp"] = OutsideTemp.ToString();
+        query["startTemp"] = StartTemp.ToString();
         builder.Query = query.ToString();
         var url = builder.ToString();
         Console.WriteLine(url);
@@ -88,5 +97,5 @@ Welcome to your new app.
     public float OutsideTemp { get; set; }
     public float TargetTemp { get; set; }
     public double PredictedSetting { get; set; }
-
+    public float StartTemp { get; set; }
 }
