@@ -49,7 +49,10 @@
 Welcome to your new app.
 
 <div class="slidecontainer">
-  <input @bind="HeaterPower" type="range" min="1" max="10000" step="1" class="slider" id="myRange" @oninput="SendDataToAPI">
+    <input @bind="HeaterPower" type="range" min="1" max="10000" step="1" class="slider" id="power">
+    <input @bind="Area" type="range" min="1" max="1000" step="1" class="slider" id="area">
+    <input @bind="TargetTemp" type="range" min="1" max="50" step="1" class="slider" id="targetTemp">
+    <input @bind="OutsideTemp" type="range" min="1" max="50" step="1" class="slider" id="outsideTemp">
 </div>
 
 <div>
@@ -66,8 +69,8 @@ Welcome to your new app.
         var builder = new UriBuilder("https://192.168.1.165/api/Temperature");
         builder.Port = 5001;
         var query = HttpUtility.ParseQueryString(builder.Query);
-        query["roomArea"] = "10";
-        query["targetTemp"] = "100";
+        query["roomArea"] = Convert.ToString(Area, CultureInfo.InvariantCulture);
+        query["targetTemp"] = Convert.ToString(TargetTemp, CultureInfo.InvariantCulture);
         query["roomId"] = "0";
         builder.Query = query.ToString();
         var url = builder.ToString();
@@ -81,6 +84,9 @@ Welcome to your new app.
     }
 
     private float HeaterPower { get; set; }
+    public float Area { get; set; }
+    public float OutsideTemp { get; set; }
+    public float TargetTemp { get; set; }
     public double PredictedSetting { get; set; }
 
 }
