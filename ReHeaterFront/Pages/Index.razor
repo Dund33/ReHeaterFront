@@ -51,10 +51,10 @@
 Welcome to your new app.
 
 <div class="slidecontainer">
-    <input @bind="HeaterPower" type="range" min="1" max="10000" step="1" class="slider" id="power">
+    <input @bind="HeaterPower" type="range" min="1" max="5000" step="1" class="slider" id="power">
     Heater power @HeaterPower Watts
     <hr class="fading-line">
-    <input @bind="Area" type="range" min="1" max="1000" step="1" class="slider" id="area">
+    <input @bind="Area" type="range" min="1" max="250" step="1" class="slider" id="area">
     Area: @Area m^2
     <hr class="fading-line">
     <input @bind="TargetTemp" type="range" min="1" max="50" step="1" class="slider" id="targetTemp">
@@ -93,13 +93,8 @@ Welcome to your new app.
         query["startTemp"] = StartTemp.ToString();
         builder.Query = query.ToString();
         var url = builder.ToString();
-        Console.WriteLine(url);
-        var response = await Client.GetAsync(url);
-        var respString = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(respString);
-        var res = Convert.ToDouble(respString, CultureInfo.InvariantCulture);
-        Console.WriteLine(res);
-        PredictedSetting = res;
+        var output = await Client.GetFromJsonAsync<ModelOutput>(url);
+        PredictedSetting = output.Score;
     }
 
     private float HeaterPower { get; set; }
