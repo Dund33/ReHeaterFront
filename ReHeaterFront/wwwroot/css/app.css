@@ -25,7 +25,6 @@ app {
 .top-row {
     align-items: center;
     display: flex;
-    height: 3.5rem;
 }
 
 .main { flex: 1; }
@@ -41,14 +40,24 @@ app {
     white-space: nowrap;
 }
 
+.button-rust {
+    background-color: #a83e3a;
+    border-color: #a83e3a;
+}
+
+.button-rust:hover {
+    background-color: #f0a96b;
+    border-color: #f0a96b;
+}
+
 .main .top-row a:first-child {
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.sidebar { background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%); }
+.sidebar { background-image: linear-gradient(180deg, #f0a96b 0%, rgb(255, 243, 218) 70%); }
 
-.sidebar .top-row { background-color: rgba(0, 0, 0, 0.4); }
+.sidebar .top-row { background-color: rgba(115, 12, 8, 0.4); }
 
 .sidebar .navbar-brand { font-size: 1.1rem; }
 
@@ -151,3 +160,20 @@ app {
         display: block;
     }
 }
+
+.btn-danger {
+    font-size: 13px;
+    color: rgba(217, 83, 78, 0.75);
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid rgba(217, 83, 78, 0.75);
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-danger:hover {
+    color: #FFF;
+    background: rgba(217, 83, 78, 0.75);
+    border: 2px solid rgba(217, 83, 78, 0.75);
+} 

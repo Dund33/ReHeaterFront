@@ -46,13 +46,12 @@
         width: 25px; /* Set a specific slider handle width */
     }
 </style>
+
 <link rel="shortcut icon" href="favicon.png">
-
-
 
 <div class="slidecontainer">
     <input @bind="HeaterPower" type="range" min="1" max="5000" step="1" class="slider" id="power">
-    Heater power @HeaterPower Watts
+    Max heater power: @HeaterPower Watts
     <hr class="fading-line">
     <input @bind="Area" type="range" min="1" max="250" step="1" class="slider" id="area">
     Area: @Area m^2
@@ -70,10 +69,10 @@
 </div>
 
 <div>
-    <button class="btn-success" @onclick="SendDataToAPI">Predict</button>
+    <button class="btn btn-danger" @onclick="SendDataToAPI">Predict</button>
 </div>
 
-<div class="jumbotron align-content-center">
+<div class="jumbotron align-content-center" style="background-color: #f0a96b; margin-top: 1rem">
     Predicted power is @PredictedSetting Watts
     That would be somewhere around @PowerPercent % of your heater's power
 </div>
