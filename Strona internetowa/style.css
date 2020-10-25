@@ -1,0 +1,95 @@
+body
+{
+	/* Background pattern from subtlepatterns.com */
+	background-image: url("img/bright_squares.png");
+	font-family: 'Cuprum', sans-serif;
+	font-family: Verdana;
+	font-size: 20px;
+	color: Black;
+}
+#container
+{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;	
+    background-color: #ededed;
+}
+#topbar
+{
+	text-align: center;
+	display: inline-block;
+	padding: 5px;
+    background-color: #dddddd;
+	width: 100%;
+	Height: 20%;
+	font-style: italic;
+	font-weight: 600;
+	font-size: 18px;	
+}
+#logo
+{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+#content
+{
+	Text-align: center;
+	padding:40px;
+	/* Background pattern from subtlepatterns.com */
+	background-image: url("img/gradient_squares.png"); 
+	width: 93%;
+}
+#footer
+{
+	clear: both;
+	background-color:#8e8e8e;
+	border-left: 20px;
+	height: 20%;
+}
+.image
+{
+	margin-top: 18px;
+	text-align: center;
+    width:96px;
+    height: 96px;
+    display: block;
+}
+.overlay
+{
+   opacity: 0;
+   transition: .5s ease;
+   background-color: #e0e0e0;
+}
+.container:hover .overlay
+{
+	cursor: pointer;
+    opacity: 1;
+}
+.text
+{
+	position: relative;
+	margin-bottom: 50%;
+	text-align: center;
+	cursor: pointer;
+	top: 50%;
+	left: 50%;
+	bottom: 50%;
+	right: 50%;
+    font-color: black;
+    font-size: 15px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+#tytul
+{   
+    font-style: italic;
+	font-size: 50px;
+	font-weight: 900;
+}
+#siedziba
+{
+    margin-left: 100px;	
+    -webkit-box-shadow: -2px 3px 86px 26px rgba(204,204,204,1);
+    -moz-box-shadow: -2px 3px 86px 26px rgba(204,204,204,1);
+    box-shadow: -2px 3px 86px 26px rgba(204,204,204,1);
+}
